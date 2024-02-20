@@ -8,7 +8,7 @@ import zipfile
 import os
 
 def plot_earth_aeqd(proj_aeqd):
-  world_4326 = gpd.read_file("../tmp/CNTR_RG_01M_2020_4326.geojson")
+  world_4326 = gpd.read_file("../data/CNTR_RG_01M_2020_4326.geojson")
   world_aeqd = world_4326.to_crs(proj_aeqd)
   lon = proj_aeqd.to_dict().get("lon_0")
   lat = proj_aeqd.to_dict().get("lat_0")
