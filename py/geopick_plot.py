@@ -14,7 +14,7 @@ def plot_earth_aeqd(proj_aeqd):
   lat = proj_aeqd.to_dict().get("lat_0")
   center = gpd.GeoSeries(shapely.geometry.Point([lon, lat]))
   # Plot
-  fig, ax = plt.subplots(figsize=(6, 6))
+  fig, ax = plt.subplots(figsize=(8, 8))
 # Hide both x and y-axis labels and ticks
   ax.set_xticks([])
   ax.set_yticks([])
@@ -50,7 +50,7 @@ def plot_geopick_location(location, params):
   else:
     p = get_plot_params()
 
-  fig, ax = plt.subplots(figsize=(6, 6)) 
+  fig, ax = plt.subplots(figsize=(8, 8)) 
   ax.set_aspect(p['aspect'])
   xmin = location.bounds['minx'].min() * 0.999
   xmax = location.bounds['maxx'].max() * 1.001
@@ -67,7 +67,7 @@ def plot_geopick(sec, location, centroid, uncertainty_line, uncertainty_value, v
     p = params
   else:
     p = get_plot_params()
-  fig, ax = plt.subplots(figsize=(6, 6))
+  fig, ax = plt.subplots(figsize=(8, 8))
   if xlim is not None:
     ax.set_xlim(xlim[0] * (1 - p["xlim_factor"]), xlim[1] * (1 + p['xlim_factor']))    
   if ylim is not None:
