@@ -35,9 +35,8 @@ def get_plot_params():
                  "unc_line_color": "blue",
                  "vertex_color": "black",
                  "candidate_color": "yellow",
-                 "candidate_sa_color": "magenta",
-                 'candidate_sa_marker': ".",
-                 'candidate_sa_size': 10,
+                 "candidate_color_sa": "magenta",
+                 "candidate_size_sa": 5,
                  "nearest_point_color": "red",
                  "nearest_point_marker": "+",
                  "nearest_point_size": 75,
@@ -96,7 +95,7 @@ def plot_geopick(sec, location, centroid, uncertainty_line, uncertainty_value, v
   if candidates is not None:
     candidates.plot(aspect = p['aspect'], color = p['candidate_color'], markersize = 20, ax = ax)    
   if candidates_sa is not None:
-    candidates_sa.plot(aspect = p['aspect'], edgecolor = p['candidate_sa_color'], color = 'none', markersize = p['candidate_sa_size'], marker = p['candidate_sa_marker'], ax = ax)    
+    candidates_sa.plot(aspect = p['aspect'], color = p['candidate_color_sa'], markersize = p['candidate_size_sa'], ax = ax)        
   if nearest_point is not None:
     nearest_point.plot(aspect = p['aspect'], color = p['nearest_point_color'], 
                        marker = p['nearest_point_marker'],
