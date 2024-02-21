@@ -34,6 +34,8 @@ def get_plot_params():
                  "unc_line_color": "blue",
                  "vertex_color": "black",
                  "candidate_color": "yellow",
+                 "candidate_color_sa": "magenta",
+                 "candidate_size_sa": 5,
                  "nearest_point_color": "red",
                  "nearest_point_marker": "+",
                  "nearest_point_size": 75,
@@ -62,7 +64,7 @@ def plot_geopick_location(location, params):
   ctx.add_basemap(ax, crs=location.crs.to_string(), source=ctx.providers.OpenStreetMap.Mapnik)
   location.plot(aspect = p['aspect'], facecolor = "none", edgecolor = "blue", ax = ax)
 
-def plot_geopick(sec, location, centroid, uncertainty_line, uncertainty_value, vertices, candidates, nearest_point, nearest_segment, basemap, xlim, ylim, params):
+def plot_geopick(sec, location, centroid, uncertainty_line, uncertainty_value, vertices, candidates, candidates_sa, nearest_point, nearest_segment, basemap, xlim, ylim, params):
   if params is not None:
     p = params
   else:
@@ -91,6 +93,8 @@ def plot_geopick(sec, location, centroid, uncertainty_line, uncertainty_value, v
     vertices.plot(aspect = p['aspect'], color = p['vertex_color'], markersize = 10, ax = ax)
   if candidates is not None:
     candidates.plot(aspect = p['aspect'], color = p['candidate_color'], markersize = 20, ax = ax)    
+  if candidates_sa is not None:
+    candidates_sa.plot(aspect = p['aspect'], color = p['candidate_color_sa'], markersize = p['candidate_size_sa'], ax = ax)        
   if nearest_point is not None:
     nearest_point.plot(aspect = p['aspect'], color = p['nearest_point_color'], 
                        marker = p['nearest_point_marker'],
