@@ -51,7 +51,6 @@ def plot_geopick_location(location, params):
     p = params
   else:
     p = get_plot_params()
-
   fig, ax = plt.subplots(figsize=(6, 6)) 
   ax.set_aspect(p['aspect'])
   xmin = location.bounds['minx'].min() * 0.999
