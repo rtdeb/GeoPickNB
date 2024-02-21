@@ -213,10 +213,7 @@ def json_to_geoseries(json):
   location = location["geometry"]
   return location
 
-def print_georeference(georeference, markdown = True):
-  centroid = georeference[0].iloc[0]
-  uncertainty = georeference[1]
-  spatial_fit = georeference[3]
+def print_georeference(centroid_y, centroid_x, uncertainty, spatial_fit, markdown = True):
   if markdown:
     tab = "    "
     br = "<br>"
@@ -224,7 +221,7 @@ def print_georeference(georeference, markdown = True):
     tab = "\t"
     br = "\n"
   georeference_string = "**LOCATION'S CENTROID:** " + br + br + tab + \
-    "Latitude, Longitude: " + str(round(centroid.y, 7)) + ", " + str(round(centroid.x, 7)) + \
+    "Latitude, Longitude: " + str(round(centroid_y, 7)) + ", " + str(round(centroid_x, 7)) + \
     br + tab + "Uncertainty: " + str(round(uncertainty)) + "m" + br + tab + \
     "Spatial fit: " + str(spatial_fit)
   return georeference_string
